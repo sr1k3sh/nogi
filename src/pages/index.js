@@ -1,118 +1,273 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { Tooltip } from 'react-tooltip'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const mainBuildingList = [
+  {
+    id: 'A',
+    identity: 'A',
+    name: 'Multipurpose Hall',
+    status: true,
+  },
+  {
+    id: 'B',
+    identity: 'B',
+    name: 'Meeting Room',
+    status: false,
+  },
+  {
+    id: 'C',
+    identity: 'C',
+    name: 'Longue',
+    status: false,
+  },
+  {
+    id: 'D',
+    identity: 'D',
+    name: 'Terrace',
+    status: false,
+  },
+]
+
+const anotherBuildingList = [
+  {
+    id: 1,
+    identity: '1',
+    name: 'Night Club',
+    status: true,
+  },
+  {
+    id: 2,
+    identity: '2',
+    name: 'Meeting Room',
+    status: false,
+  },
+  {
+    id: 3,
+    identity: '3',
+    name: 'Guest Room',
+    status: false,
+  },
+  {
+    id: 4,
+    identity: '4',
+    name: 'Corridor',
+    status: false,
+  },
+]
+
+const guestRooms = [
+  {
+    id: 101,
+    identity: '101',
+    name: 'Night Club',
+    status: true,
+  },
+  {
+    id: 102,
+    identity: '102',
+    name: 'Meeting Room',
+    status: false,
+  },
+  {
+    id: 103,
+    identity: '103',
+    name: 'Guest Room',
+    status: false,
+  },
+  {
+    id: 104,
+    identity: '104',
+    name: 'Corridor',
+    status: false,
+  },
+  {
+    id: 105,
+    identity: '105',
+    name: 'Night Club',
+    status: false,
+  },
+  {
+    id: 106,
+    identity: '106',
+    name: 'Meeting Room',
+    status: false,
+  },
+  {
+    id: 107,
+    identity: '107',
+    name: 'Guest Room',
+    status: false,
+  },
+  {
+    id: 108,
+    identity: '108',
+    name: 'Corridor',
+    status: false,
+  },
+  {
+    id: 101,
+    identity: '101',
+    name: 'Night Club',
+    status: false,
+  },
+  {
+    id: 102,
+    identity: '102',
+    name: 'Meeting Room',
+    status: false,
+  },
+  {
+    id: 103,
+    identity: '103',
+    name: 'Guest Room',
+    status: false,
+  },
+  {
+    id: 104,
+    identity: '104',
+    name: 'Corridor',
+    status: false,
+  },
+  {
+    id: 105,
+    identity: '105',
+    name: 'Night Club',
+    status: false,
+  },
+  {
+    id: 106,
+    identity: '106',
+    name: 'Meeting Room',
+    status: false,
+  },
+  {
+    id: 107,
+    identity: '107',
+    name: 'Guest Room',
+    status: false,
+  },
+  {
+    id: 108,
+    identity: '108',
+    name: 'Corridor',
+    status: false,
+  },
+]
 
 export default function Home() {
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <h1 className='text-4xl font-semibold'>Hotel Map</h1>
+      <section>
+        <div className='flex flex-row justify-between items-center'>
+          <div className='flex flex-col w-1/3'>
+            <div className='mb-8'>
+              <h2 className='text-2xl mb-4'>Main Building</h2>
+              <ul className='flex flex-col gap-2'>
+                {
+                  mainBuildingList.map((item) => (
+                    <li>
+                      {
+                        item.status &&
+                        <Tooltip anchorSelect={`#mainroom-${item.id}`}>
+                          <div className='flex items-center justify-start mb-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                              <path fill="#fff" d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+                            </svg>
+                            <h2 className='text-lg'>
+                              Notification
+                            </h2>
+                          </div>
+                          <p className='text-sm'>
+                            Please respond to {item.name} Notification
+                          </p>
+                        </Tooltip>
+                      }
+                      <div id={`mainroom-${item.id}`} className={`flex items-center flex-row  gap-2 px-4 py-2 ${item.status ? 'bg-black hover:bg-green-700' : 'bg-purple-200'}`}>
+                        <div className={`flex  w-8 h-8 justify-center items-center rounded-full p-4 ${item.status ? 'bg-purple-500' : 'bg-purple-300'}`}>
+                          <span className={`text-white ${item.status ? 'text-white' : 'text-black'}`}>{item.identity}</span>
+                        </div>
+                        <h3 className={`text-white ${item.status ? 'text-white' : 'text-black'}`}>{item.name}</h3>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div className='mb-8'>
+              <h2 className='text-2xl mb-4'>Another Building</h2>
+              <ul className='flex flex-col gap-2'>
+                {
+                  anotherBuildingList.map((item) => (
+                    <li>
+                      {
+                        item.status &&
+                        <Tooltip anchorSelect={`#anthor-building-${item.id}`}>
+                          <div className='flex items-center justify-start mb-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                              <path fill="#fff" d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+                            </svg>
+                            <h2 className='text-lg'>
+                              Notification
+                            </h2>
+                          </div>
+                          <p className='text-sm'>
+                            Please respond to {item.name} Notification
+                          </p>
+                        </Tooltip>
+                      }
+                      <div id={`anthor-building-${item.id}`} className={`flex items-center flex-row  gap-2 px-4 py-2 ${item.status ? 'bg-black hover:bg-green-700' : 'bg-purple-200'}`}>
+                        <div className={`flex  w-8 h-8 justify-center items-center rounded-full p-4 ${item.status ? 'bg-purple-500' : 'bg-purple-300'}`}>
+                          <span className={`text-white ${item.status ? 'text-white' : 'text-black'}`}>{item.identity}</span>
+                        </div>
+                        <h3 className={`text-white ${item.status ? 'text-white' : 'text-black'}`}>{item.name}</h3>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div>
+              <h2 className='text-2xl mb-4'>Rooms</h2>
+              <ul className='flex flex-row flex-wrap gap-2'>
+                {
+                  guestRooms.map((item) => (
+                    <li>
+                      {
+                        item.status &&
+                        <Tooltip anchorSelect={`#guest-room-${item.id}`}>
+                          <div className='flex items-center justify-start mb-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                              <path fill="#fff" d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+                            </svg>
+                            <h2 className='text-lg'>
+                              Notification
+                            </h2>
+                          </div>
+                          <p className='text-sm'>
+                            Please respond to {item.name} Notification
+                          </p>
+                        </Tooltip>
+                      }
+                      <div id={`guest-room-${item.id}`} className={`flex w-8 h-8 justify-center items-center rounded-full p-5 ${item.status ? 'bg-purple-500 hover:bg-green-700' : 'bg-purple-300'}`}>
+                        <span className={`text-sm text-white ${item.status ? 'text-white' : 'text-black'}`}>{item.identity}</span>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+          <div className='flex justify-center items-center w-2/3'>
+            <Image width={400} height={400} src="/bg.png"></Image>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </section>
     </main>
   )
 }
